@@ -18,7 +18,7 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
-db.init_app(app)
+
 
 # JWT creates new end point /auth when auth called we send username and password after than the user found /auth endpoint sends back JWT token
 jwt = JWT(app, authenticate, identity)
@@ -32,6 +32,7 @@ api.add_resource(UserRegister, '/register')
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(StoreList, '/stores')
 
+db.init_app(app)
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run()
 
