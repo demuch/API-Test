@@ -9,7 +9,7 @@ from resources.user import UserRegister
 from resources.store import Store, StoreList
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/de_mu/Desktop/Python/Section 6/data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'Denis'  # Not gonna be showing to others
 api = Api(app)
@@ -34,5 +34,5 @@ api.add_resource(StoreList, '/stores')
 
 db.init_app(app)
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5000)
 
